@@ -1,0 +1,50 @@
+int	atoi(const char *str)
+{
+	int	res; // Stores the final result
+	int	sign; // Stores the sign of the number
+
+	res = 0; // Initialize the result to zero
+	sign = 1; // Initialize the sign as positive
+	
+	 // Ignore leading white spaces in the string
+	while(*str == ' ')
+	{
+		str++;
+	}
+	
+	// Check for '+' or '-' sign at the beginning
+	if(*str == '+' || *str == '-')
+	{
+		if(*str == '-')
+		{
+			sign = -1; // If '-' is encountered, set the sign as negative
+		}
+		str++;
+	}
+	
+	// Convert the digits in the string to an integer value
+	while(*str >= '0' && *str <= '9')
+	{
+	
+	
+	
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	
+	MORE INFO WHY res = res * 10
+	
+	Vamos a seguir el ejemplo de "123" para comprenderlo mejor:
+
+	Inicio: res = 0 (resultado vacío)
+	Primera iteración: Se toma el primer dígito "1" y se convierte en 1. res se convierte en 1.
+	Segunda iteración: El resultado actual (1) se multiplica por 10, lo que resulta en 10. Luego se suma el dígito "2", que se convierte en 2. res se convierte en 12.
+	Tercera iteración: El resultado actual (12) se multiplica por 10, lo que resulta en 120. Luego se suma el dígito "3", que se convierte en 3. res se convierte en 123
+	
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	
+	
+	
+		res = res * 10 + (*str - '0'); // Multiply the current result by 10 for space and add the converted digit 
+		str++;
+	}
+	return (res * sign); // Return the resulting integer value with the appropriate sign (number * +-1)
+}
